@@ -18,7 +18,7 @@
 
     <div class="edit">
       <h4>Edit counter title:</h4>
-      <input v-model="counterData.title" type="text">
+      <input v-model="counterData.title" type="text" v-autofocus>
     </div>
 
   </div>
@@ -41,6 +41,7 @@ import {
   onDeactivated, onBeforeUpdate, onUpdated
 } from 'vue'
 
+import { vAutofocus } from '@/directives/vAutofocus'
 /*
 * app title
 */
@@ -142,12 +143,17 @@ onMounted(() => {
 <!--    }-->
 <!--  },-->
 <!--  mounted() {-->
-<!--    // do stuff when component is loaded-->
 <!--    console.log('mounted')-->
 <!--  },-->
 <!--  unmounted() {-->
-<!--    // do stuff when component is loaded-->
 <!--    console.log('unmounted')-->
+<!--  },-->
+<!--  directives: {-->
+<!--    autofocus: {-->
+<!--      mounted(el) {-->
+<!--        el.focus()-->
+<!--      }-->
+<!--    }-->
 <!--  }-->
 <!--}-->
 <!--</script>-->
