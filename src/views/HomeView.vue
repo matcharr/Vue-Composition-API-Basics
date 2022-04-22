@@ -25,38 +25,101 @@
 </template>
 
 <script setup>
-  import { reactive, computed, watch } from 'vue'
+/*
+* imports
+*/
 
-  const appTitle = 'My Ok Counter App'
+import {
+  reactive,
+  computed,
+  watch,
+  onBeforeUnmount,
+  onBeforeMount,
+  onMounted,
+  onUnmounted,
+  onActivated,
+  onDeactivated, onBeforeUpdate, onUpdated
+} from 'vue'
 
-  const counterData = reactive({
-    count: 0,
-    title: 'My Counter'
-  })
+/*
+* app title
+*/
 
-  watch(() => counterData.count, (newCount) => {
-    if (newCount === 20) {
-      alert('Way to go! You made it to 20!!')
-    }
-  })
+const appTitle = 'My Ok Counter App'
 
-  const oddOrEven = computed (() => {
-    if (counterData.count %  2 === 0) return 'even'
-      return 'odd'
-  })
+onMounted(() => {
+  console.log('Do stuff related to App Title')
+})
 
-  const incrementCounter = (amount, e) => {
-    counterData.count += amount
-    // console.log(e)
-    console.log(counterData.count)
+/*
+* counter
+*/
+
+const counterData = reactive({
+  count: 0,
+  title: 'My Counter'
+})
+
+watch(() => counterData.count, (newCount) => {
+  if (newCount === 20) {
+    alert('Way to go! You made it to 20!!')
   }
+})
 
-  const decrementCounter = amount => {
-    if (counterData.count > 0) {
-      counterData.count -= amount
-    }
-    console.log(counterData.count)
+const oddOrEven = computed(() => {
+  if (counterData.count % 2 === 0) return 'even'
+  return 'odd'
+})
+
+const incrementCounter = (amount, e) => {
+  counterData.count += amount
+  // console.log(e)
+  console.log(counterData.count)
+}
+
+const decrementCounter = amount => {
+  if (counterData.count > 0) {
+    counterData.count -= amount
   }
+  console.log(counterData.count)
+}
+
+onMounted(() => {
+  console.log('Do stuff related to Counter')
+})
+
+// onBeforeUpdate(() => {
+//   console.log('onBeforeUpdate')
+// })
+//
+// onUpdated(() => {
+//   console.log('onUpdated')
+// })
+//
+// onBeforeMount(() => {
+//   console.log('onbeforeMount')
+// })
+//
+// onMounted(() => {
+//   console.log('onMounted')
+// })
+//
+// onBeforeUnmount(() => {
+//   console.log('onBeforeUnmount')
+// })
+//
+// onUnmounted(() => {
+//   console.log('onUnmounted')
+// })
+//
+// onActivated(() => {
+//   console.log('onUnmounted')
+// })
+//
+// onDeactivated(() => {
+//   console.log('onUnmounted')
+// })
+
 </script>
 
 
@@ -77,6 +140,14 @@
 <!--    count(newCount, oldCount) {-->
 <!--      if (newCount == 20) alert('asdfasd')-->
 <!--    }-->
+<!--  },-->
+<!--  mounted() {-->
+<!--    // do stuff when component is loaded-->
+<!--    console.log('mounted')-->
+<!--  },-->
+<!--  unmounted() {-->
+<!--    // do stuff when component is loaded-->
+<!--    console.log('unmounted')-->
 <!--  }-->
 <!--}-->
 <!--</script>-->
